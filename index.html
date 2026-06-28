@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Colorfly Palette Generator</title>
+		<link rel="stylesheet" href="../css/style.css" />
+	</head>
+	<body>
+		<header>
+			<h1>Colorfly Palette 🎨</h1>
+			<p>Generador de paletas Interactivo</p>
+		</header>
+
+		<main>
+			<section class="control-panel">
+				<div class="selector-cant">
+					<label for="selector-cantidad">Tamaño de la paleta:</label>
+					<select id="selector-cantidad" name="selector-cantidad">
+						<option value="6">6 Colores</option>
+						<option value="8">8 Colores</option>
+						<option value="9">9 Colores</option>
+					</select>
+				</div>
+				<div class="control-buttons">
+					<button id="generar-paleta" class="generar-btn"
+						>Generar Paleta</button
+					>
+					<button id="mostrar-formato" class="mostrar-btn"
+						>Mostrar HEX</button
+					>
+					<button id="guardar-paleta" class="guardar-btn"
+						>Guardar Paleta</button
+					>
+				</div>
+			</section>
+			<section class="inyect-paleta">
+				<h2>Visualización de Colores</h2>
+				<article id="contenedor-colores" class="contenedor-color"></article>
+			</section>
+		</main>
+		<footer>
+			<p>&copy; Colorfly Studio 2026</p>
+		</footer>
+		<script src="../js/script.js"></script>
+	</body>
+</html>
