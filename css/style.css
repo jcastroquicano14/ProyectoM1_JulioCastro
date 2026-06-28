@@ -1,0 +1,232 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+/** Variables globales */
+:root {
+	--bg: #1e2327;
+	--text: #f1e5e5;
+	--primary: #248eeb;
+	--secondary: #2c7b5a;
+	--tercery: #ec59d1;
+	--danger: #969393;
+	--radios: 12px;
+	--text-2: #e5f3f6;
+	--border: #f1e5e5;
+}
+
+body {
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	background-color: var(--bg);
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+header {
+	background-color: var(--primary);
+	color: #fff;
+	padding: 20px;
+	text-align: center;
+	background: linear-gradient(135deg, #1a1a24 0%, #12121a 100%);
+	border-bottom: 1px solid var(--border);
+}
+
+header h1 {
+	font-size: 2rem;
+	letter-spacing: 0.05em;
+	background: linear-gradient(90deg, #2d07b6, #d39910);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+}
+
+header p {
+	font-size: 1rem;
+	margin-top: 0.5rem;
+	color: #dcdcdc;
+}
+
+main {
+	flex: 1;
+	padding: 40px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	/* justify-content: space-between; */
+	gap: 2.5rem;
+}
+
+.selector-cant {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	background: var(--surface);
+	padding: 1rem 1.5rem;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.selector-cant label {
+	font-weight: bold;
+	color: var(--text-2);
+}
+
+.selector-cant select {
+	background: var(--bg);
+	color: var(--danger);
+	border: 1px solid var(--border);
+	border-radius: var(--radios);
+	padding: 0.4rem 0.8rem;
+	font-size: 0.9rem;
+	cursor: pointer;
+}
+
+.control-buttons {
+	display: flex;
+	gap: 1rem;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.generar-btn,
+.mostrar-btn,
+.guardar-btn {
+	border: none;
+	padding: 0.9rem 1.95rem;
+	cursor: pointer;
+	border-radius: var(--radios);
+	font-weight: 600;
+	font-size: 0.95rem;
+	transition:
+		background-color 0.2s ease,
+		transform 0.1s ease;
+}
+
+.generar-btn {
+	background-color: var(--primary);
+	color: #fff;
+}
+
+.generar-btn:hover {
+	background-color: var(--secondary);
+	transform: translateY(-2px);
+}
+
+.generar-btn:focus {
+	outline: 3px solid var(--primary);
+	outline-offset: 4px;
+}
+
+.mostrar-btn {
+	background-color: var(--secondary);
+	color: #fff;
+}
+
+.mostrar-btn:hover {
+	background-color: var(--tercery);
+	transform: translateY(-2px);
+}
+
+.guardar-btn {
+	background-color: var(--danger);
+	color: #fff;
+}
+
+.guardar-btn:hover {
+	background-color: var(--primary);
+	transform: translateY(-2px);
+}
+
+.inyect-paleta {
+	width: 800%;
+	max-width: 960px;
+	padding-bottom: 20rem;
+	height: auto;
+}
+
+.inyect-paleta h2 {
+	font-size: 1.5rem;
+	color: var(--text-2);
+	text-align: center;
+}
+
+.contenedor-color {
+	display: grid;
+	width: 100%;
+	max-width: 1200px; /* Evita que se estire demasiado en pantallas gigantes */
+	gap: 20px; /* Separación uniforme entre las tarjetas de colores */
+	margin: 0 auto; /* Centra el contenedor completo en la pantalla */
+	padding: 20px;
+}
+.grid-3 {
+	grid-template-columns: repeat(3, 1fr);
+}
+.grid-4 {
+	grid-template-columns: repeat(4, 1fr);
+}
+
+/* Estilos de cada tarjetita de color */
+.tarjeta-color {
+	width: 100%; /* Ancho de cada bloque de color */
+	height: 20vh; /* Altura de cada bloque de color */
+	border-radius: var(--radios);
+	display: flex;
+	flex-direction: column;
+	align-items: center; /* Pone el texto en la parte inferior */
+	justify-content: center;
+	padding-bottom: 15px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	transition: transform 0.2s;
+}
+
+footer {
+	text-align: center;
+	padding: 3rem;
+	color: var(--text-2);
+	font-size: 0.8rem;
+	border-top: 1px solid var(--border);
+}
+
+/* 1. Para pantallas medianas (Tablets o celulares en horizontal: menos de 900px) */
+@media (max-width: 900px) {
+	/* Forzamos a que sin importar si son 5, 6 u 8 colores, se muestren de a 2 columnas */
+	.grid-3,
+	.grid-4 {
+		grid-template-columns: repeat(2, 1fr) !important;
+	}
+
+	/* Si tienes un contenedor para los botones arriba, hacemos que se apilen bonito */
+	header,
+	.controles {
+		flex-direction: column;
+		text-align: center;
+		gap: 15px;
+	}
+}
+
+/* 2. Para pantallas pequeñas (Celulares en vertical: menos de 600px) */
+@media (max-width: 600px) {
+	/* En el celular mandamos todo a 1 sola columna hacia abajo (tipo Instagram) */
+	.grid-3,
+	.grid-4 {
+		grid-template-columns: 1fr !important;
+	}
+
+	/* Hacemos que las tarjetas no sean tan gigantes a lo alto */
+	.tarjeta-color {
+		min-height: 120px;
+	}
+
+	/* Achicamos un poquito la letra para que quepa bien en la pantalla */
+	.info-color {
+		font-size: 1.2rem;
+	}
+
+	button {
+		width: 100%; /* Los botones ocupan todo el ancho para que sea fácil tocarlos con el dedo gordo */
+		margin-bottom: 5px;
+	}
+}
