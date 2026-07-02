@@ -161,6 +161,7 @@ main {
 	margin: 0 auto; /* Centra el contenedor completo en la pantalla */
 	padding: 20px;
 }
+
 .grid-3 {
 	grid-template-columns: repeat(3, 1fr);
 }
@@ -180,6 +181,7 @@ main {
 	padding-bottom: 15px;
 	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 	cursor: pointer;
+	position: relative;
 }
 
 .tarjeta-color:hover {
@@ -207,6 +209,23 @@ main {
 	padding: 12px 24px;
 	border-radius: 4px;
 	margin-top: 10px;
+}
+
+.candadoBtn {
+	position: absolute;
+	background: none;
+	border: none;
+	font-size: 1.2rem;
+	cursor: pointer;
+	bottom: 15px;
+	right: 15px;
+	color: var(--text-2);
+	transition: color 0.8s ease;
+}
+
+.candadoBtn:hover {
+	color: var(--primary);
+	transform: scale(1.2);
 }
 
 footer {
